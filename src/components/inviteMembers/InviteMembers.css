@@ -1,0 +1,36 @@
+.inviteMembersDialog .ais-SearchBox .ais-SearchBox-form{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.inviteMembersDialog .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input{
+    padding: 0.5rem;
+    font-size: large;
+}
+
+.inviteMembersDialog .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-reset{
+    display: none;
+}
+
+.inviteMembersDialog .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-submit{
+    padding-left:0.8rem;
+    padding-right: 0.8rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    color: yellow;
+    appearance: none;
+    cursor: pointer;
+    background-color: cornflowerblue;
+    border: 2px solid cornflowerblue;
+}
+
+.inviteMembersDialog .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-submit .ais-SearchBox-submitIcon{
+    width:1.2rem;
+    height:1.2rem;
+    stroke: white;
+    stroke-width: 0.05rem;
+    fill: white;
+}

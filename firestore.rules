@@ -1,0 +1,62 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isProjectOwner(projectId){
+      return get(/databases/$(database)/documents/projects/$(projectId)).data.ownerId == request.auth.uid;
+    }
+    function isTaskManager(projectId, stageId, taskId){
+      return isTaskMember(projectId, stageId, taskId) && get(/databases/$(database)/documents/projects/$(projectId)/stages/$(stageId)/tasks/$(taskId)).data.managerId == request.auth.uid 
+    }
+    function isTaskMember(projectId, stageId, taskId){
+      return exists(/databases/$(database)/documents/projects/$(projectId)/stages/$(stageId)/tasks/$(taskId)).data.members[request.auth.uid]
+    }
+
+    // project rules
+    match /projects/{projectId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.ownerId;
+
+      // stage rules
+      match /stages/{stageId} {
+        allow read: if request.auth != null;
+        allow write: if request.auth != null && isProjectOwner(projectId)  // nested path is still able to access the outside variables, eg. projectId
+
+        // task rules
+        match /tasks/{taskId} {
+          allow read: if request.auth != null;
+          allow create: if request.auth != null && isProjectOwner(projectId) // nested path is still able to access the outside variables, eg. projectId
+          allow update: if request.auth != null && (isProjectOwner(projectId) || isTaskManager(projectId,stageId,taskId))
+          allow delete: if request.auth != null && isProjectOwner(projectId)
+          // task updates rules
+          match /updates/{updateId} {
+            allow read: if request.auth != null;
+            allow create: if request.auth != null && isTaskMember(projectId,stageId,taskId)
+            allow update, delete: if request.auth != null && isProjectOwner(projectId)
+          }
+        }
+      }
+    }
+    // match /projects/{projectId}/stages/{stageId} {
+    //     allow read: if true;
+    //     allow write: if request.auth != null && isProjectOwner(projectId)
+    // }
+    // match /projects/{projectId}/stages/{stageId}/tasks/{taskId} {
+    //   allow read: if true;
+    //   allow write: if request.auth != null && isProjectOwner(projectId)
+    // }
+
+    match /users/{userId}{
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth.uid == userId;
+
+      // notif rules
+      match /notifs/{notifId}{
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if true;    // change it later, using cloud functions maybe
+      }
+    }
+  }
+}

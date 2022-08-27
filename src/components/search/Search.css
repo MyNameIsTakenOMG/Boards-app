@@ -1,0 +1,38 @@
+.search-root{}
+
+.search-root .ais-SearchBox .ais-SearchBox-form{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-submit{
+    display: none;
+}
+
+.search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-reset{
+    display: none;
+}
+
+.search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input{
+    position: relative;
+    font-size: 180%;
+    padding: 0.5rem 0;
+    border: none;
+    border-bottom: 3px solid rgb(115, 112, 112);
+}
+
+.search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input:focus{
+    outline: none;
+    border-bottom: 3px solid rgb(38, 124, 229);
+}
+
+@media only screen and (min-width:600px){
+    .search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input{
+        font-size: 200%;
+    }
+}
+@media only screen and (min-width:1200px) {
+    .search-root .ais-SearchBox .ais-SearchBox-form .ais-SearchBox-input{
+        font-size: 250%;
+    }
+}

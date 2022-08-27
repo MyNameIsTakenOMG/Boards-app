@@ -1,0 +1,60 @@
+.mentions {
+    display:blocks
+}
+
+.mentions--singleLine .mentions__control {
+display: inline-block;
+}
+.mentions--singleLine .mentions__highlighter {
+padding: 1px;
+border: 2px inset transparent;
+}
+.mentions--singleLine .mentions__input {
+padding: 1px;
+border: 2px inset;
+}
+
+.mentions--multiLine .mentions__control {
+height:46px;
+overflow-y: hidden;
+}
+.mentions--multiLine .mentions__highlighter {
+border: 1px solid transparent;
+padding:2px;
+min-height: 30px;    
+height:46px !important;
+overflow-y: auto !important;
+}
+.mentions--multiLine .mentions__input {
+border: 1px solid transparent;
+outline: 0;
+height:46px !important;
+overflow-y: auto !important;
+}
+
+.mentions__suggestions__list {
+background-color: white;
+border: 1px solid rgba(0, 0, 0, 0.15);
+font-size: 10pt;
+max-height:90px;
+overflow-y: auto;
+}
+
+.mentions__suggestions__item {
+padding: 5px 15px;
+border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.mentions__suggestions__item--focused {
+background-color: #c4d7ea;
+}
+
+.mentions__mention {
+position: relative;
+z-index: 1;
+color: rgb(35, 128, 234);
+text-shadow: 1px 1px 1px white, 1px -1px 1px white, -1px 1px 1px white,
+  -1px -1px 1px white;
+text-decoration: none ;
+pointer-events: none;
+}
