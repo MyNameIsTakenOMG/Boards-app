@@ -49,7 +49,7 @@ export default function ProjectBlock({project, tasksData, handleOpenTaskBoard}) 
         {/* task block  list --- grid style */}
         <Grid container sx={{overflow:'hidden',height: !isExpanding?0:'auto'}}>
             {tasksData[project.id].map(task =>(
-                <Grid key={task.id} item xs={12} sm={6} md={4} lg={3} xl={2} sx={{px:1,py:2,border:'1px solid black'}}>
+                <Grid key={task.id} item xs={12} sm={6} md={4} lg={3} xl={2} sx={{px:1,py:2}}>
                     <Paper onClick={()=>{handleOpenTaskBoard(project.id, task.id)}} elevation={2} sx={{'&:hover':{transform:'scale(1.03)','& .MuiSvgIcon-root':{opacity:1}},transition:'transform 0.2s ease-in-out',position:'relative',overflow:'hidden',width:'100%',pb:0.5,cursor:'pointer',fontSize:{xs:'160%',md:'180%',lg:'200%'}}}>
                         <Stack direction='column' p={2} spacing={1}>
                             <Typography variant='body1' textAlign={'left'} color={grey[600]} fontWeight={500}>{task.task_name}</Typography>
