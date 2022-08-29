@@ -111,7 +111,7 @@ export default function MyWork() {
                     return <ProjectBlock key={project.id} project={project} tasksData={tasksData} handleOpenTaskBoard={handleOpenTaskBoard} />
                 })}
             </Stack>
-            <Box ref={theSentinal} sx={{width:'100%',py:0.5,border:'1px solid black'}}></Box>
+            <Box ref={theSentinal} sx={{width:'100%',py:0.5,border:'1px solid transparent'}}></Box>
         </Stack>
         {/* task detail page  */}
         {task && 
