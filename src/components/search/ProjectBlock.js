@@ -12,7 +12,7 @@ const projectStatusColorMap = {
 
 export default function ProjectBlock({hit, handleCheckProject}) {
   return (
-    <Grid item  xs={12} sm={6} md={4} lg={3} xl={2} sx={{px:1,py:2,border:'1px solid black'}}>
+    <Grid item  xs={12} sm={6} md={4} lg={3} xl={2} sx={{px:1,py:2}}>
       <Paper onClick={()=>{handleCheckProject(hit.objectID)}} sx={{'&:hover':{transform:'translateY(-5px) scale(1.05)'},transition:'transform 0.2s ease-in-out',position:'relative',cursor:'pointer',p:1,display:'flex',flexFlow:'column nowrap',border:`5px solid ${purple[400]}`}}>
         <Stack direction='column' alignItems={'start'} my={1} ml={1} spacing={1}>
           <Typography variant='h5'>{hit.project_name}</Typography>
