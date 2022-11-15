@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+﻿# Welcome to Boards !
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+**Boards** is a personal project that mimics some functionalities of the web application **Monday.com**, which is a cloud-based platform that allows users to create their own applications and projects as well as using it organize and keep track of their work.
 
-In the project directory, you can run:
+![Boards-demo](https://github.com/MyNameIsTakenOMG/project-gifs/blob/main/Boards-demo.gif)
+The link of the app : [Demo](https://boards.zhengfangdev.com/login)
+**Note** : Using a makeup email address when registering a new account is recommended, please follow email address format `xxx@xxx.xxx`, or you can use a testing account to give it a shot:
+Account: `test1@test1.com`
+Password: `test123`
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Boards** is a project management web application which is heavily inspired by **Monday.com** which is one of the best products in the industry. The main functionalities that Boards includes are :
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ - Users can create their own projects or be a part of other projects by getting invited by other project creators.
+ - In a project,  a user can play multiple different roles. Specifically, a `project creator` generally has the full control over the whole project, a `task manager` is responsible for managing the whole team and makes sure the task will be completed on time, and a `task member` is the one who should stick with the task that he or she has been assigned to and collaborate with other team members to make sure the task could be finished before the deadline.
+ - As a project creator, not only can you customize the project by renaming it, adding or removing project stages as well as project tasks, but also you can choose who to be invited over to your project as your `project members` and assign them with tasks or roles if you want.
+ - A task manager has the power to modify the details of the task that he or she has been assign to. Also every task manager has the right to choose who should be on the team by picking up them from `project members` .
+ - For each task, there is a **'Chatting Room'** or `updates` section where task team members can write `updates` for tracking their work as well as communicate with other team members. Besides, each team member can mention other team members by typing `@`, then choose the team member they want to mention. 
+ - By taking advantage of **Algolia Search**, we can easily search projects or users using `full-text` search
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Issues and challenges
+- Adding `presence` or user online status feature to the task `updates` section to make it a bit more convenient for communication among task team members. **Possible solution** : by taking advantage of firebase real-time database, we can record the online status for each team members.
+- Currently, when searching users and inviting them over to our projects, by default it is going to search the whole `Users` collection which is not very effective and efficient. **Possible solution** : adding filters to users, such as `friends`, `colleagues`, or names of companies and so on. As such, it would be much more faster to find the people that users are looking for. 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - React.js
+ - Google cloud firebase
+ - Firebase extension algolia search
+ - Material UI
+ - Redux toolkit
+ - React router
+ - JOI
+ - React helmet
+ - Javascript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Get Started
 
-### `npm run eject`
+This is the part showing how to get a local copy up and running. Please follow the steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Prerequisites**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Please make sure **Node.js** has been downloaded and installed globally. The download link:  [Node.js](https://nodejs.org/en/download/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Start the development server**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Run the command: `npm start` to test the site on `localhost:3000`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Environment variables**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In the `env.example` file, there are several variables that need to be setup first. In order to get all necessary variables, you must go to [firebase](https://firebase.google.com/) to create a project. Then go to the project `settting` to copy the configuration snippet into your firebase config file. 
+Besides, when it comes to install and use `algolia search` extension for your firebase project, you must go to `setttings` of your firebase project, then under `service accounts` tab, click `generate new key` to have your service account JSON file which will be used for configuring the installation of the extension.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

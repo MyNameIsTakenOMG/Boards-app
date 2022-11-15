@@ -13,7 +13,6 @@
 /.firebase
 # misc
 .DS_Store
-sa.json
 .env
 .env.local
 .env.development.local
@@ -23,3 +22,6 @@ sa.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# service account info
+sa.json
